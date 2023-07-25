@@ -13,7 +13,7 @@ form.addEventListener("submit", (event) => {
 function verifieChamps() {
     const firstName = document.getElementById("first-name").value;
     const lastName = document.getElementById("last-name").value;
-    const message = document.getElementById("message").value;
+    const messageInput = document.getElementById("message").value;
     
     if (firstName ==="" || lastName==="" || message==="") {
         errorMessage.style.display = "block";
@@ -25,7 +25,7 @@ function verifieChamps() {
         user.innerText = firstName +" "+ lastName;
         const message_container = document.createElement("div");
         const message = document.createElement("p");
-        message.innerText = message;
+        message.innerText = messageInput;
 
         const commentList = document.querySelector("#comment-list");
 
@@ -33,12 +33,13 @@ function verifieChamps() {
         comment_container.appendChild(user);
         comment_container.appendChild(message_container);
         message_container.appendChild(message);
+        commentList.appendChild(div_container);
+        console.log(message)
+
         div_container.className = "flex space-x-4 text-sm text-gray-500";
         comment_container.className = "flex-1 py-10 ";
         user.className = "font-medium text-gray-900";
         message_container.className = "prose prose-sm mt-4 max-w-none text-gray-500";
-        commentList.appendChild(div_container);
-
         
 }};
 
